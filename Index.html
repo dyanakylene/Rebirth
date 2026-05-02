@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="theme-color" content="#0c0f1a"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="Rebirth"/>
+  <meta name="application-name" content="Rebirth"/>
+  <meta name="description" content="Your daily ritual tracker"/>
+  <title>Rebirth</title>
+
+  <!-- Apple touch icons -->
+
+  <link rel="apple-touch-icon" href="data:image/png;base64,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"/>
+  <link rel="apple-touch-icon" sizes="152x152" href="data:image/png;base64,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"/>
+  <link rel="apple-touch-icon" sizes="120x120" href="data:image/png;base64,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"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAIz0lEQVR4nO3df2yU9R3A8e9de7072mtLYa3AJK6r2mmc0ejGAstwf3Rswc2hsB+GSbaZucwZgmFbsnWNISQYw4IL2TToZofIHIl0PxLRaIqsiEuMWQmzXZE6YLRCaemPa3vX+7U/2EOu1+eee5675+65+9z7lRDp9frcF3nz4dMnBVzKYTV1yxNOnwH2CU4MuZx8/YK/OAGXl0IHXpAXI2IoVZi48/oChAw9+Qw7LxcmZJiRj7BtvSAhIxt2hm3LhQgZdrAjbHeuFyBm2MWOlnIKmphht1ybymrEEzIKIZsVxPKEJmYUSjatWQqamFFoVpszHTQxwylW2jMVNDHDaWYbzPm2HVBMMgbNdEaxMNOiYdDEjGKTqcm0QRMzipVRm+zQEEU3aKYzil26RpnQEGVB0ExnlAq9VpnQEGVe0ExnlJrUZpnQEOVa0ExnlKrkdpnQEIWgIYpbKdYNlD6tYSY0RCFoiELQEMXF/gxJmNAQhaAhCkFDFIKGKAQNUQgaohA0RCFoiELQEIWgIQpBQxSChigEDVEIGqIQNEQhaIhC0BCFoCEKQUMUgoYoBA1RCBqiEDREIWiIQtAQhaAhCkFDFIKGKAQNUQgaohA0RCFoiELQEIWgIQpBQxSCLoDWno4zrT0dZ5w+RzkgaIhC0BCFoCEKQUMUgoYoBA1RCNrA9vbB3U6fQU+xnqsYEDREIWgDT+1ofrzYpuH29sHdT+1oftzpcxQrgoYoBA1RCBqiEHQGxbRHsz9nRtAQhaAhCkGbUAxrB+uGOQQNUQgaohA0RHHV1C1POH2IUpG6x37hlee+nvz+tzZ8/7BSSrUdPND5+rcefEh7XPvzhDd9cPvlv2zZ8Fnt8U3PHun80w/WPaSUUpt/fXTetfY/tvZwutdFekzoLKXGrD3WdvBAp1JXozb6+E3PHunU/psas1ILA4c5lU4fQLK2gwc6fWF/64DqXao99tUXXvmHL7yo38lzScaEtsCJ23esG9YQNEQhaIhC0BZ1r+46ZHbt8IX9rXqPh7wzuo+n2t4+uHuqevyQlfOVOz4pNOmuI79alfz29KLJYaWUqp6pXWb3a1XP1A4nv/3IrvdWKaXUMz+78x27X0sagjYhNeZkWtgab9hv+fqpAafzyK73VhG1MVaODIxidoI2raGPoDN4d922BROxe3XXoXuO37cxn68bmK7fqLc/M6GNEbTNxhZf/K2V5zdcabT0fBgjaBP0prQTmM6ZEXSWzK4dAy29W5RS65VS6wdaerf8/21D6dYNZEbQJlmZ0trakS5e7XEr6wbT2Rxu21mgRW3mzse56wd2Gb3/5K0ndq3t+VpdpusQsjVM6CxkmtbBmomJ5Lf/1vSNd7RvyY8fXfPnCWWAmK3jC/xztL19cHf36q5r+65ezKkfs/7iy/MmfPKkDkzXb+Sr67LHhM4jvZiNHkfumNA2a+3p+JT2faNwk6d0/5on+vJ9rnLBhIYoBJ1HqbtypseRO4K2Wer6kBpv6tusG/YStUO39nQ87PQZSlH/mif2OX0Gu4gKutgkf4KYismcH6wceZQuWmLOHyY0RGFCQxSChigEDVEIGqIQNEQhaIgi+k+s1N9758x1P713wRfRx4Ihd/iDi5WXn+sOzPzzbJXRc5Od2fh0Y/VdzWG95yUiMVf00qR78o1T/su/OxpIxOK61xzZ1x2IjQXdZs71yZcfu+RZsThmdKaxP56onjt7uVLvdYJ/7/d94g8/HEl+PPj2ae9/f/JSg9E1S5n4+9De5sao9pN6fuv+htDAsKdp65cna9tum42HIq4PN//mY5Hh8Qq9506/O+jVrrNy75bR4Z1d9ZHh8YrU582eOl+16I4b5lbs3HTFVVWZGHnmzcDoiz01Rtc0c66Ve74zOvjtvY2pvzhOr3uyKRYMuQOfbw35b185d2nv67VGZ7+5+xcfuTwViZF93YHRzmM1+f+/7pyyWzlik7Pukee7A0op5fZ5EtV3N4fNfNy5R19YooWfKh6KuIInTnvDH45UKqWUt6Upase5Lj79al0iHk/7MbP9FzyTr520/nePCSZ65UjH5XJd+10pEY66cr6etzJR85mWsLe5MZqIxdXUm//y2XGu4NunvUbPj45MVURHpnR/kZWrsgu6otYfX/rdtUGllAoPXqqceqtPN77r92we074/8Wqvf3hnV32m50XHpt1jLx0PTB3/t+WgzZ7LjOQzlZuyCjr5J3rytZP+4Sf/WpeY05/QqXtoOue37m+Y6T1b5W1pii7vuH+88dG2ycAXb50996PfL0lEYqamv5VzmZFuh872eqWkrHbo89tebPjPw/uWRseC7tovfXp26feuTsRcJSIxV6hvyDP5ximfUkr5b1kR8d54nek9Ol/nKkdlFbSKJ1Sob8gzvONwvUooteTB1cGGb35u2syHLvv5feOL7rhhTu99Lk9FwnfzskjtPbeElLr6SWJk6Ir53TaHc2E+0bft0t0HHu08VtO07SsTizfcPaOUUpGPJipGO4/VZLoPfe7HnUuqPt4Q1b0PHY2r2Ph0xWzfBc/Y/p6a2fcveKzch053rjMP7Glc/ssN47Vtt80mP/9C+6HFU93v+4x+nNyHBkpcea0cEI+gIQpBQxSChigEDVEIGqIQNEQhaIhC0BCFoCEKQUMUgoYoBA1RCBqiEDREIWiIQtAQxR2cGMr576UAikFwYsjFhIYoBA1RCBqiuJW6uns4fRAgF1rDTGiIQtAQ5VrQrB0oVcntMqEhyrygmdIoNanNMqEhyoKgmdIoFXqtMqEhim7QTGkUu3SNMqEhStqgmdIoVkZtGk5ookaxydRkxpWDqFEszLTIDg1RTAXNlIbTzDZoekITNZxipT1LKwdRo9CsNmd5hyZqFEo2reUUJ/9oJ/Ihl6GZ010OpjXslmtTOd+2I2rYxY6WbI2RFQTZsHMo5mW6EjbMyMfv7nldFwgbevK5phZk/yVsKFWYz7cK/gkdcZeXQt80cPwOBYHL4vRdr/8BXbSxoNiTfrIAAAAASUVORK5CYII="/>
+
+  <!-- PWA Manifest (inline) -->
+
+  <script>
+    const manifestData = {
+      name: "Rebirth",
+      short_name: "Rebirth",
+      description: "Your daily ritual tracker",
+      start_url: "./",
+      display: "standalone",
+      background_color: "#0c0f1a",
+      theme_color: "#0c0f1a",
+      orientation: "portrait",
+      icons: [
+        { src: "data:image/png;base64,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", sizes: "192x192", type: "image/png", purpose: "any maskable" },
+        { src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAaiUlEQVR4nO3de7Ccd3kf8Hf3nKNz0Tk6ki3JtjBgbNcR4ZY4ARIw2HEgYVKSYBpDCSUwA7QkndKWDlOYaeJxQmbotORCOwFi0kBSmiZkbCfjtBgwsWuTmOIQDHYiq7Itx7ZkXSxZ0rnftn+YhSNp92gv73Wfz2fGM3Auu+++r6Tv931+775bSyiVyeldjaK3ASALMycO1IreBr7HwciZgAdoTUHIl52dIWEP0B+lIDt2bIoEPkC2FIL02JF9EPgAxVIIemfHdUnoA5STMtAdO6sDQh+gWpSBc7ODNiD4AapNEWjPjjmD0AcYTMrA6eyM7xD8ADEoAs8KvxMEP0BM0YtA2Bcv+AFIkrhFINyLFvwAtBKtCIR5sYIfgE5EKQID/yIFPwC9GPQiMLAvTvADkIZBLQL1ojcgC8IfgLQMaqYMVKsZ1IMEQDkM0jRgIF6I4AcgT4NQBCq/BCD8AcjbIGRPpQvAIBwAAKqp6hlUyRFG1Xc6AIOliksClZsACH8AyqaK2VSpAlDFHQxADFXLqEqMLKq2UwGIrQpLAqWfAAh/AKqmCtlV6gJQhR0IAK2UPcNKWwDKvuMA4FzKnGWlLABl3mEA0I2yZlrpCkBZdxQA9KqM2VaaqxTLuHMAIG1leYdAKSYAwh+AKMqSeYUXgLLsCADISxmyr9ACUIYdAABFKDoDCysARb9wAChakVlY+BIAAJC/QgqAs38AeFZRmZh7ARD+AHC6IrIx1wIg/AGgtbwzMrcCIPwBYGN5ZmUuBUD4A0Bn8srMzAuA8AeA7uSRnd4GCAABZVoAnP0DQG+yztDMCoDwB4D+ZJmlmRQA4Q8A6cgqU10DAAABpV4AnP0DQLqyyNZUC4DwB4BspJ2xqRUA4Q8A2Uoza10DAAABpVIAnP0DQD7SylwTAAAIqO8C4OwfAPKVRvb2VQCEPwAUo98MtgQAAAH1XACc/QNAsfrJYhMAAAiopwLg7B8AyqHXTDYBAICAui4Azv4BoFx6yWYTAAAIqKsC4OwfAMqp24w2AQCAgDouAM7+AaDcuslqEwAACKijAuDsHwCqodPMNgEAgIDOWQCc/QNAtXSS3SYAABCQAgAAAW1YAIz/AaCazpXhJgAAEFDbAuDsHwCqbaMsNwEAgIAUAAAIqGUBMP4HgMHQLtNNAAAgIAUAAAI6qwAY/wPAYGmV7SYAABCQAgAAASkAABDQaQXA+j8ADKYzM94EAAACUgAAICAFAAAC+m4BsP4PAINtfdabAABAQAoAAASkAABAQAoAAARUTxIXAAJAFM3MNwEAgIAUAAAISAEAgIAUAAAISAEAgIAUAAAISAEAgIBq7gEAAPGYAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQAoAAASkAABAQMNFbwBQjN333PBw83/vuerGy4rcFiB/JgAAEJACAAABKQAAEJACAAABKQAAEJACAAABKQAAEJACAAABKQAAEJACAAABKQAAEJACAAABKQAAEJACAAABKQAAEJACAAABKQAAEJACAAABKQAAEJACABv44C8/8rEP/vIjHyt6O+iO4wbnpgAAQEAKAGzgP/3apf8uSZ49oyx6W+hM81g1jx3QmgIAAAEpAAAQkAIAAAEpAHAOrgOoDuv/0DkFAAACUgAAICAFADpgGaD8jP+hOwoAAASkAABAQAoAdMgyQHkZ/0P3FAAACEgBAICAFAAACEgBgC64DqB8rP9DbxQAAAhIAQCAgBQA6JJlgPIw/ofeKQAAEJACAAABKQAAEJACAD1wHUDxrP9DfxQAAAhIAQCAgBQA6JFlgOIY/0P/FAAACEgBAICAFADog2WA/Bn/QzoU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", sizes: "512x512", type: "image/png", purpose: "any maskable" }
+      ]
+    };
+    const blob = new Blob([JSON.stringify(manifestData)], {type: "application/json"});
+    const manifestURL = URL.createObjectURL(blob);
+    const link = document.createElement("link");
+    link.rel = "manifest";
+    link.href = manifestURL;
+    document.head.appendChild(link);
+  </script>
+
+  <!-- Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; background: #0c0f1a; }
+    body { padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); }
+    #root { height: 100%; }
+    input[type=time]::-webkit-calendar-picker-indicator { filter: invert(1); opacity: 0.4; }
+    select option { background: #1a1f35; color: #e8eaf0; }
+    ::-webkit-scrollbar { width: 0; }
+  </style>
+
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React + Babel -->
+
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+import { useState, useEffect } from "react";
+
+const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const TODAY = new Date().getDay();
+
+const DEFAULT_ROUTINES = [
+  {
+    id: 1, name: "Morning Hydration", category: "morning", emoji: "💧", time: "07:00",
+    days: [1,2,3,4,5,6,0], streak: 5, completedDates: [],
+    tasks: [{ id: "t1", text: "Drink 16oz water", done: false }, { id: "t2", text: "Add electrolytes", done: false }],
+    products: [{ id: "p1", name: "Hydro Flask 32oz", note: "Keep on nightstand" }, { id: "p2", name: "LMNT Electrolytes", note: "Salt stick pack" }]
+  },
+  {
+    id: 2, name: "Stretch & Mobility", category: "fitness", emoji: "🧘", time: "07:30",
+    days: [1,2,3,4,5], streak: 3, completedDates: [],
+    tasks: [{ id: "t3", text: "Hip flexor stretch (2 min)", done: false }, { id: "t4", text: "Thoracic spine rotation", done: false }, { id: "t5", text: "Cat-cow x10", done: false }],
+    products: [{ id: "p3", name: "Yoga mat", note: "" }, { id: "p4", name: "Foam roller", note: "Focus on IT band" }]
+  },
+  {
+    id: 3, name: "Vitamins & Supplements", category: "health", emoji: "💊", time: "08:00",
+    days: [1,2,3,4,5,6,0], streak: 7, completedDates: [],
+    tasks: [{ id: "t6", text: "Take with food", done: false }, { id: "t7", text: "Log in health app", done: false }],
+    products: [{ id: "p5", name: "Vitamin D3 + K2", note: "2000 IU" }, { id: "p6", name: "Magnesium Glycinate", note: "400mg" }, { id: "p7", name: "Omega-3 Fish Oil", note: "2 capsules" }]
+  },
+  {
+    id: 4, name: "Evening Walk", category: "fitness", emoji: "🚶", time: "18:00",
+    days: [1,2,3,4,5,6,0], streak: 12, completedDates: [],
+    tasks: [{ id: "t8", text: "20-30 min walk", done: false }, { id: "t9", text: "No phone, stay present", done: false }],
+    products: [{ id: "p8", name: "Running shoes", note: "Brooks Ghost" }]
+  },
+  {
+    id: 5, name: "Wind-down Reading", category: "evening", emoji: "📖", time: "21:00",
+    days: [1,2,3,4,5,6,0], streak: 2, completedDates: [],
+    tasks: [{ id: "t10", text: "No screens 30 min before", done: false }, { id: "t11", text: "Read 20 pages", done: false }],
+    products: [{ id: "p9", name: "Blue light glasses", note: "For earlier evening" }, { id: "p10", name: "Amber lamp", note: "Switch to warm light" }]
+  },
+  {
+    id: 6, name: "Gratitude Journal", category: "evening", emoji: "✍️", time: "21:30",
+    days: [1,2,3,4,5,6,0], streak: 9, completedDates: [],
+    tasks: [{ id: "t12", text: "Write 3 gratitudes", done: false }, { id: "t13", text: "Set intention for tomorrow", done: false }],
+    products: [{ id: "p11", name: "Five Minute Journal", note: "" }]
+  },
+];
+
+const CATEGORIES = {
+  morning: { label: "Morning", color: "#f59e0b", bg: "rgba(245,158,11,0.12)" },
+  evening: { label: "Evening", color: "#818cf8", bg: "rgba(129,140,248,0.12)" },
+  fitness: { label: "Fitness", color: "#34d399", bg: "rgba(52,211,153,0.12)" },
+  health:  { label: "Health",  color: "#f87171", bg: "rgba(248,113,113,0.12)" },
+};
+
+const todayStr = () => new Date().toISOString().split("T")[0];
+
+const FlameIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2c0 0-5 5-5 10a5 5 0 0010 0c0-2-1-4-2-5 0 2-1 3-2 3-1 0-2-1-2-3 0-1 1-3 1-5z"/>
+  </svg>
+);
+const PlusIcon = () => <svg width={15} height={15} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}><path d="M12 5v14M5 12h14"/></svg>;
+const CheckIcon = () => <svg width={11} height={11} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3}><path d="M5 12l5 5L20 7"/></svg>;
+const XIcon = ({ size = 13 }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}><path d="M18 6L6 18M6 6l12 12"/></svg>;
+const ChevronRight = () => <svg width={13} height={13} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M9 18l6-6-6-6"/></svg>;
+const PackageIcon = ({ size = 13 }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>;
+const TaskIcon = ({ size = 13 }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>;
+
+export default function RoutineTracker() {
+  const [routines, setRoutines] = useState(() => {
+    try { const s = localStorage.getItem("rt2-routines"); return s ? JSON.parse(s) : DEFAULT_ROUTINES; }
+    catch { return DEFAULT_ROUTINES; }
+  });
+  const [completed, setCompleted] = useState(() => {
+    try { const s = localStorage.getItem("rt2-completed"); return s ? JSON.parse(s) : {}; }
+    catch { return {}; }
+  });
+  const [activeFilter, setActiveFilter] = useState("all");
+  const [showAdd, setShowAdd] = useState(false);
+  const [detail, setDetail] = useState(null);
+  const [detailTab, setDetailTab] = useState("tasks");
+  const [newRoutine, setNewRoutine] = useState({ name: "", category: "morning", emoji: "⭐", time: "08:00", days: [1,2,3,4,5] });
+  const [newTask, setNewTask] = useState("");
+  const [newProduct, setNewProduct] = useState({ name: "", note: "" });
+
+  const today = todayStr();
+
+  useEffect(() => { try { localStorage.setItem("rt2-routines", JSON.stringify(routines)); } catch {} }, [routines]);
+  useEffect(() => { try { localStorage.setItem("rt2-completed", JSON.stringify(completed)); } catch {} }, [completed]);
+
+  const todayRoutines = routines.filter(r => r.days.includes(TODAY));
+  const filteredRoutines = activeFilter === "all" ? todayRoutines : todayRoutines.filter(r => r.category === activeFilter);
+  const isCompleted = (id) => completed[today]?.includes(id);
+
+  const toggle = (id) => {
+    const wasDone = isCompleted(id);
+    setCompleted(prev => {
+      const arr = prev[today] || [];
+      return { ...prev, [today]: wasDone ? arr.filter(x => x !== id) : [...arr, id] };
+    });
+    setRoutines(prev => prev.map(r => r.id === id ? { ...r, streak: wasDone ? Math.max(0, r.streak - 1) : r.streak + 1 } : r));
+  };
+
+  const updateRoutine = (id, patch) => setRoutines(prev => prev.map(r => r.id === id ? { ...r, ...patch } : r));
+  const deleteRoutine = (id) => { setRoutines(prev => prev.filter(r => r.id !== id)); if (detail === id) setDetail(null); };
+
+  const addTask = (rid) => {
+    if (!newTask.trim()) return;
+    const r = routines.find(x => x.id === rid);
+    updateRoutine(rid, { tasks: [...(r?.tasks || []), { id: `t${Date.now()}`, text: newTask.trim(), done: false }] });
+    setNewTask("");
+  };
+  const toggleTask = (rid, tid) => {
+    const r = routines.find(x => x.id === rid);
+    updateRoutine(rid, { tasks: r.tasks.map(t => t.id === tid ? { ...t, done: !t.done } : t) });
+  };
+  const deleteTask = (rid, tid) => {
+    const r = routines.find(x => x.id === rid);
+    updateRoutine(rid, { tasks: r.tasks.filter(t => t.id !== tid) });
+  };
+
+  const addProduct = (rid) => {
+    if (!newProduct.name.trim()) return;
+    const r = routines.find(x => x.id === rid);
+    updateRoutine(rid, { products: [...(r?.products || []), { id: `p${Date.now()}`, name: newProduct.name.trim(), note: newProduct.note.trim() }] });
+    setNewProduct({ name: "", note: "" });
+  };
+  const deleteProduct = (rid, pid) => {
+    const r = routines.find(x => x.id === rid);
+    updateRoutine(rid, { products: r.products.filter(p => p.id !== pid) });
+  };
+
+  const addRoutine = () => {
+    if (!newRoutine.name.trim()) return;
+    setRoutines(prev => [...prev, { ...newRoutine, id: Date.now(), streak: 0, completedDates: [], tasks: [], products: [] }]);
+    setNewRoutine({ name: "", category: "morning", emoji: "⭐", time: "08:00", days: [1,2,3,4,5] });
+    setShowAdd(false);
+  };
+  const toggleDay = (day) => setNewRoutine(prev => ({
+    ...prev, days: prev.days.includes(day) ? prev.days.filter(d => d !== day) : [...prev.days, day]
+  }));
+
+  const completedCount = filteredRoutines.filter(r => isCompleted(r.id)).length;
+  const totalCount = filteredRoutines.length;
+  const pct = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
+  const dayLabel = new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
+  const topStreak = routines.reduce((max, r) => r.streak > max ? r.streak : max, 0);
+  const detailRoutine = detail ? routines.find(r => r.id === detail) : null;
+
+  const EMOJIS = ["⭐","💧","🧘","🏋️","🚶","🥗","💊","📖","✍️","🌙","☀️","🎯","🏃","🧠","❤️","🍵","🎵","🌿"];
+
+  const S = { // shared input style
+    width: "100%", padding: "10px 12px", borderRadius: "10px",
+    background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)",
+    color: "#e8eaf0", fontSize: "13px", outline: "none", boxSizing: "border-box", fontFamily: "inherit"
+  };
+
+  return (
+    <div style={{ minHeight: "100vh", background: "#0c0f1a", fontFamily: "'DM Sans','Segoe UI',sans-serif", color: "#e8eaf0", position: "relative" }}>
+      <div style={{ position: "fixed", top: "-100px", right: "-100px", width: "400px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(129,140,248,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
+      <div style={{ position: "fixed", bottom: "-80px", left: "-80px", width: "300px", height: "300px", borderRadius: "50%", background: "radial-gradient(circle, rgba(52,211,153,0.07) 0%, transparent 70%)", pointerEvents: "none" }} />
+
+      <div style={{ maxWidth: "480px", margin: "0 auto", padding: "24px 16px 100px" }}>
+
+        {/* Header */}
+        <div style={{ marginBottom: "22px", display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+          <div>
+            <div style={{ fontSize: "11px", color: "#6b7280", fontWeight: 500, letterSpacing: "0.07em", textTransform: "uppercase", marginBottom: "3px" }}>{dayLabel}</div>
+            <h1 style={{ fontSize: "26px", fontWeight: 700, margin: 0, background: "linear-gradient(135deg,#e8eaf0 0%,#a5b4fc 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>My Routines</h1>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "5px", background: "rgba(245,158,11,0.12)", border: "1px solid rgba(245,158,11,0.25)", borderRadius: "20px", padding: "5px 11px" }}>
+            <span style={{ color: "#f59e0b" }}><FlameIcon size={13} /></span>
+            <span style={{ fontSize: "12px", fontWeight: 600, color: "#f59e0b" }}>{topStreak}d streak</span>
+          </div>
+        </div>
+
+        {/* Progress */}
+        <div style={{ background: "linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01))", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "20px", padding: "18px 20px", marginBottom: "16px", display: "flex", alignItems: "center", gap: "18px" }}>
+          <div style={{ position: "relative", flexShrink: 0 }}>
+            <svg width={72} height={72} viewBox="0 0 72 72">
+              <circle cx={36} cy={36} r={30} fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth={7} />
+              <circle cx={36} cy={36} r={30} fill="none" stroke="url(#pg)" strokeWidth={7}
+                strokeDasharray={`${2*Math.PI*30}`} strokeDashoffset={`${2*Math.PI*30*(1-pct/100)}`}
+                strokeLinecap="round" transform="rotate(-90 36 36)" style={{ transition: "stroke-dashoffset 0.5s ease" }} />
+              <defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#818cf8"/><stop offset="100%" stopColor="#34d399"/></linearGradient></defs>
+            </svg>
+            <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span style={{ fontSize: "15px", fontWeight: 700 }}>{pct}%</span>
+            </div>
+          </div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, marginBottom: "5px" }}>
+              {pct === 100 ? "🎉 All done!" : pct > 50 ? "Great momentum!" : "Let's get going!"}
+            </div>
+            <div style={{ fontSize: "12px", color: "#9ca3af" }}><span style={{ color: "#e8eaf0", fontWeight: 600 }}>{completedCount}</span> / <span style={{ color: "#e8eaf0", fontWeight: 600 }}>{totalCount}</span> completed</div>
+            <div style={{ display: "flex", gap: "5px", marginTop: "9px", flexWrap: "wrap" }}>
+              {Object.entries(CATEGORIES).map(([key, cat]) => {
+                const c = todayRoutines.filter(r => r.category === key);
+                const d = c.filter(r => isCompleted(r.id)).length;
+                return c.length > 0 ? (
+                  <div key={key} style={{ fontSize: "10px", background: cat.bg, color: cat.color, border: `1px solid ${cat.color}28`, borderRadius: "7px", padding: "2px 7px", fontWeight: 500 }}>
+                    {cat.label} {d}/{c.length}
+                  </div>
+                ) : null;
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Filters */}
+        <div style={{ display: "flex", gap: "6px", marginBottom: "13px", overflowX: "auto", paddingBottom: "2px" }}>
+          {[{ key: "all", label: "All" }, ...Object.entries(CATEGORIES).map(([k, v]) => ({ key: k, label: v.label }))].map(f => (
+            <button key={f.key} onClick={() => setActiveFilter(f.key)} style={{
+              flexShrink: 0, padding: "5px 13px", borderRadius: "20px",
+              border: activeFilter === f.key ? "1px solid rgba(129,140,248,0.5)" : "1px solid rgba(255,255,255,0.08)",
+              background: activeFilter === f.key ? "rgba(129,140,248,0.15)" : "rgba(255,255,255,0.03)",
+              color: activeFilter === f.key ? "#a5b4fc" : "#6b7280",
+              fontSize: "12px", fontWeight: 500, cursor: "pointer"
+            }}>{f.label}</button>
+          ))}
+        </div>
+
+        {/* Routine list */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginBottom: "14px" }}>
+          {filteredRoutines.length === 0 && <div style={{ textAlign: "center", padding: "32px", color: "#4b5563", fontSize: "13px" }}>No routines for today in this category</div>}
+          {filteredRoutines.sort((a, b) => a.time.localeCompare(b.time)).map(routine => {
+            const done = isCompleted(routine.id);
+            const cat = CATEGORIES[routine.category];
+            const tasksDone = routine.tasks?.filter(t => t.done).length || 0;
+            const tasksTotal = routine.tasks?.length || 0;
+            const prodsTotal = routine.products?.length || 0;
+            return (
+              <div key={routine.id} style={{
+                background: done ? "rgba(52,211,153,0.05)" : "rgba(255,255,255,0.03)",
+                border: done ? "1px solid rgba(52,211,153,0.18)" : "1px solid rgba(255,255,255,0.07)",
+                borderRadius: "14px", padding: "11px 13px",
+                display: "flex", alignItems: "center", gap: "11px", transition: "all 0.2s"
+              }}>
+                <div onClick={() => toggle(routine.id)} style={{
+                  width: "32px", height: "32px", borderRadius: "50%", flexShrink: 0, cursor: "pointer",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  background: done ? "rgba(52,211,153,0.18)" : "rgba(255,255,255,0.04)",
+                  border: done ? "1.5px solid #34d399" : "1.5px solid rgba(255,255,255,0.12)",
+                  color: done ? "#34d399" : "transparent", transition: "all 0.2s"
+                }}>{done && <CheckIcon />}</div>
+                <div style={{ fontSize: "19px", flexShrink: 0 }}>{routine.emoji}</div>
+                <div style={{ flex: 1, minWidth: 0, cursor: "pointer" }} onClick={() => { setDetail(routine.id); setDetailTab("tasks"); setNewTask(""); setNewProduct({ name: "", note: "" }); }}>
+                  <div style={{ fontSize: "14px", fontWeight: 600, textDecoration: done ? "line-through" : "none", color: done ? "#6b7280" : "#e8eaf0", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{routine.name}</div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "7px", marginTop: "3px", flexWrap: "wrap" }}>
+                    <span style={{ fontSize: "11px", color: "#6b7280" }}>{routine.time}</span>
+                    <span style={{ fontSize: "10px", background: cat.bg, color: cat.color, borderRadius: "5px", padding: "1px 6px", fontWeight: 500 }}>{cat.label}</span>
+                    {tasksTotal > 0 && (
+                      <span style={{ fontSize: "10px", color: "#6b7280", display: "flex", alignItems: "center", gap: "3px" }}>
+                        <TaskIcon /> {tasksDone}/{tasksTotal}
+                      </span>
+                    )}
+                    {prodsTotal > 0 && (
+                      <span style={{ fontSize: "10px", color: "#6b7280", display: "flex", alignItems: "center", gap: "3px" }}>
+                        <PackageIcon /> {prodsTotal}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <div style={{ flexShrink: 0, display: "flex", alignItems: "center", gap: "3px", color: routine.streak > 0 ? "#f59e0b" : "#374151" }}>
+                  <FlameIcon size={12} /><span style={{ fontSize: "11px", fontWeight: 600 }}>{routine.streak}</span>
+                </div>
+                <div onClick={() => { setDetail(routine.id); setDetailTab("tasks"); setNewTask(""); setNewProduct({ name: "", note: "" }); }} style={{ color: "#4b5563", cursor: "pointer", flexShrink: 0 }}>
+                  <ChevronRight />
+                </div>
+                <button onClick={() => deleteRoutine(routine.id)} style={{ background: "none", border: "none", cursor: "pointer", color: "#374151", padding: "2px", flexShrink: 0 }}
+                  onMouseEnter={e => e.currentTarget.style.color = "#f87171"} onMouseLeave={e => e.currentTarget.style.color = "#374151"}>
+                  <XIcon />
+                </button>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Week mini */}
+        <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "15px", padding: "13px 15px", marginBottom: "14px" }}>
+          <div style={{ fontSize: "10px", color: "#6b7280", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "9px" }}>This Week</div>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            {DAYS.map((day, i) => {
+              const isToday = i === TODAY;
+              const dR = routines.filter(r => r.days.includes(i));
+              const date = new Date(); date.setDate(date.getDate() - (TODAY - i));
+              const ds = date.toISOString().split("T")[0];
+              const dc = completed[ds]?.length || 0;
+              const p = dR.length > 0 ? dc / dR.length : 0;
+              return (
+                <div key={day} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "5px" }}>
+                  <div style={{ fontSize: "10px", color: isToday ? "#a5b4fc" : "#4b5563", fontWeight: isToday ? 600 : 400 }}>{day}</div>
+                  <div style={{ width: "26px", height: "26px", borderRadius: "50%", background: isToday ? "rgba(129,140,248,0.15)" : "rgba(255,255,255,0.03)", border: isToday ? "1.5px solid #818cf8" : "1.5px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden" }}>
+                    <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: `${p * 100}%`, background: p === 1 ? "rgba(52,211,153,0.3)" : "rgba(129,140,248,0.2)", transition: "height 0.4s ease" }} />
+                    <span style={{ fontSize: "9px", fontWeight: 600, color: isToday ? "#a5b4fc" : "#6b7280", position: "relative" }}>{i > TODAY ? "" : `${Math.round(p * 100)}%`}</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Add button */}
+        <button onClick={() => setShowAdd(true)} style={{
+          width: "100%", padding: "13px", borderRadius: "13px",
+          background: "linear-gradient(135deg,rgba(129,140,248,0.15),rgba(52,211,153,0.1))",
+          border: "1px dashed rgba(129,140,248,0.35)", color: "#a5b4fc", fontSize: "13px", fontWeight: 600,
+          cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "7px"
+        }}>
+          <PlusIcon /> Add New Routine
+        </button>
+      </div>
+
+      {/* ── Detail Drawer ─────────────────────────────────────── */}
+      {detailRoutine && (
+        <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.65)", backdropFilter: "blur(8px)", zIndex: 100, display: "flex", alignItems: "flex-end", justifyContent: "center" }}
+          onClick={() => setDetail(null)}>
+          <div style={{ background: "#131726", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "24px 24px 0 0", width: "100%", maxWidth: "480px", maxHeight: "85vh", display: "flex", flexDirection: "column" }}
+            onClick={e => e.stopPropagation()}>
+
+            {/* Drawer header (fixed) */}
+            <div style={{ padding: "14px 20px 0", flexShrink: 0 }}>
+              <div style={{ width: "36px", height: "4px", background: "rgba(255,255,255,0.12)", borderRadius: "2px", margin: "0 auto 14px" }} />
+              <div style={{ display: "flex", alignItems: "center", gap: "11px", marginBottom: "14px" }}>
+                <span style={{ fontSize: "22px" }}>{detailRoutine.emoji}</span>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: "15px", fontWeight: 700 }}>{detailRoutine.name}</div>
+                  <div style={{ fontSize: "11px", color: "#6b7280" }}>{detailRoutine.time} · {CATEGORIES[detailRoutine.category].label}</div>
+                </div>
+                <button onClick={() => setDetail(null)} style={{ background: "none", border: "none", cursor: "pointer", color: "#6b7280", padding: "4px" }}><XIcon size={15} /></button>
+              </div>
+              {/* Tabs */}
+              <div style={{ display: "flex", background: "rgba(255,255,255,0.04)", borderRadius: "11px", padding: "3px", marginBottom: "14px" }}>
+                {[
+                  { key: "tasks", label: "Tasks", icon: <TaskIcon size={12} />, count: `${detailRoutine.tasks?.filter(t=>t.done).length||0}/${detailRoutine.tasks?.length||0}` },
+                  { key: "products", label: "Products", icon: <PackageIcon size={12} />, count: detailRoutine.products?.length || 0 }
+                ].map(tab => (
+                  <button key={tab.key} onClick={() => setDetailTab(tab.key)} style={{
+                    flex: 1, padding: "7px", borderRadius: "8px", border: "none", cursor: "pointer",
+                    background: detailTab === tab.key ? "rgba(129,140,248,0.2)" : "transparent",
+                    color: detailTab === tab.key ? "#a5b4fc" : "#6b7280",
+                    fontSize: "12px", fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "center", gap: "5px", transition: "all 0.2s"
+                  }}>
+                    {tab.icon} {tab.label}
+                    <span style={{ fontSize: "10px", background: "rgba(255,255,255,0.08)", borderRadius: "7px", padding: "1px 5px" }}>{tab.count}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Scrollable body */}
+            <div style={{ flex: 1, overflowY: "auto", padding: "0 20px 28px" }}>
+
+              {/* TASKS TAB */}
+              {detailTab === "tasks" && (
+                <div>
+                  <div style={{ display: "flex", gap: "7px", marginBottom: "12px" }}>
+                    <input value={newTask} onChange={e => setNewTask(e.target.value)}
+                      onKeyDown={e => e.key === "Enter" && addTask(detailRoutine.id)}
+                      placeholder="Add a task step…" style={{ ...S, flex: 1 }} />
+                    <button onClick={() => addTask(detailRoutine.id)} style={{ padding: "10px 13px", borderRadius: "10px", border: "none", background: "rgba(129,140,248,0.2)", color: "#a5b4fc", cursor: "pointer", flexShrink: 0 }}><PlusIcon /></button>
+                  </div>
+                  {(!detailRoutine.tasks || detailRoutine.tasks.length === 0) && (
+                    <div style={{ textAlign: "center", padding: "22px", color: "#4b5563", fontSize: "13px" }}>No tasks yet — add step-by-step actions</div>
+                  )}
+                  <div style={{ display: "flex", flexDirection: "column", gap: "7px" }}>
+                    {detailRoutine.tasks?.map(task => (
+                      <div key={task.id} style={{
+                        display: "flex", alignItems: "center", gap: "9px",
+                        background: task.done ? "rgba(52,211,153,0.05)" : "rgba(255,255,255,0.03)",
+                        border: task.done ? "1px solid rgba(52,211,153,0.15)" : "1px solid rgba(255,255,255,0.07)",
+                        borderRadius: "10px", padding: "9px 11px"
+                      }}>
+                        <div onClick={() => toggleTask(detailRoutine.id, task.id)} style={{
+                          width: "20px", height: "20px", borderRadius: "50%", flexShrink: 0, cursor: "pointer",
+                          display: "flex", alignItems: "center", justifyContent: "center",
+                          background: task.done ? "rgba(52,211,153,0.2)" : "transparent",
+                          border: task.done ? "1.5px solid #34d399" : "1.5px solid rgba(255,255,255,0.18)",
+                          color: task.done ? "#34d399" : "transparent", transition: "all 0.2s"
+                        }}>{task.done && <CheckIcon />}</div>
+                        <span style={{ flex: 1, fontSize: "13px", textDecoration: task.done ? "line-through" : "none", color: task.done ? "#6b7280" : "#e8eaf0" }}>{task.text}</span>
+                        <button onClick={() => deleteTask(detailRoutine.id, task.id)} style={{ background: "none", border: "none", cursor: "pointer", color: "#374151", padding: "2px" }}
+                          onMouseEnter={e => e.currentTarget.style.color="#f87171"} onMouseLeave={e => e.currentTarget.style.color="#374151"}>
+                          <XIcon size={12} />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* PRODUCTS TAB */}
+              {detailTab === "products" && (
+                <div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "7px", marginBottom: "12px" }}>
+                    <input value={newProduct.name} onChange={e => setNewProduct(p => ({ ...p, name: e.target.value }))}
+                      placeholder="Product name…" style={S} />
+                    <div style={{ display: "flex", gap: "7px" }}>
+                      <input value={newProduct.note} onChange={e => setNewProduct(p => ({ ...p, note: e.target.value }))}
+                        onKeyDown={e => e.key === "Enter" && addProduct(detailRoutine.id)}
+                        placeholder="Note e.g. dosage, brand… (optional)" style={{ ...S, flex: 1 }} />
+                      <button onClick={() => addProduct(detailRoutine.id)} style={{ padding: "10px 13px", borderRadius: "10px", border: "none", background: "rgba(129,140,248,0.2)", color: "#a5b4fc", cursor: "pointer", flexShrink: 0 }}><PlusIcon /></button>
+                    </div>
+                  </div>
+                  {(!detailRoutine.products || detailRoutine.products.length === 0) && (
+                    <div style={{ textAlign: "center", padding: "22px", color: "#4b5563", fontSize: "13px" }}>No products yet — add items you use</div>
+                  )}
+                  <div style={{ display: "flex", flexDirection: "column", gap: "7px" }}>
+                    {detailRoutine.products?.map(prod => (
+                      <div key={prod.id} style={{
+                        display: "flex", alignItems: "center", gap: "10px",
+                        background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)",
+                        borderRadius: "10px", padding: "10px 12px"
+                      }}>
+                        <div style={{ width: "30px", height: "30px", borderRadius: "8px", background: "rgba(129,140,248,0.12)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, color: "#818cf8" }}>
+                          <PackageIcon size={14} />
+                        </div>
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <div style={{ fontSize: "13px", fontWeight: 600, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{prod.name}</div>
+                          {prod.note && <div style={{ fontSize: "11px", color: "#6b7280", marginTop: "1px" }}>{prod.note}</div>}
+                        </div>
+                        <button onClick={() => deleteProduct(detailRoutine.id, prod.id)} style={{ background: "none", border: "none", cursor: "pointer", color: "#374151", padding: "2px", flexShrink: 0 }}
+                          onMouseEnter={e => e.currentTarget.style.color="#f87171"} onMouseLeave={e => e.currentTarget.style.color="#374151"}>
+                          <XIcon size={12} />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Add Routine Modal ─────────────────────────────────── */}
+      {showAdd && (
+        <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.7)", backdropFilter: "blur(8px)", zIndex: 100, display: "flex", alignItems: "flex-end", justifyContent: "center" }}
+          onClick={() => setShowAdd(false)}>
+          <div style={{ background: "#131726", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "24px 24px 0 0", padding: "18px 20px 28px", width: "100%", maxWidth: "480px", maxHeight: "90vh", overflowY: "auto" }}
+            onClick={e => e.stopPropagation()}>
+            <div style={{ width: "36px", height: "4px", background: "rgba(255,255,255,0.12)", borderRadius: "2px", margin: "0 auto 16px" }} />
+            <h2 style={{ fontSize: "16px", fontWeight: 700, margin: "0 0 16px" }}>New Routine</h2>
+
+            <div style={{ marginBottom: "13px" }}>
+              <div style={{ fontSize: "10px", color: "#6b7280", marginBottom: "7px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.06em" }}>Icon</div>
+              <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
+                {EMOJIS.map(e => (
+                  <button key={e} onClick={() => setNewRoutine(p => ({ ...p, emoji: e }))} style={{
+                    width: "32px", height: "32px", borderRadius: "7px", fontSize: "16px",
+                    background: newRoutine.emoji === e ? "rgba(129,140,248,0.2)" : "rgba(255,255,255,0.04)",
+                    border: newRoutine.emoji === e ? "1.5px solid #818cf8" : "1px solid rgba(255,255,255,0.08)", cursor: "pointer"
+                  }}>{e}</button>
+                ))}
+              </div>
+            </div>
+
+            <div style={{ marginBottom: "11px" }}>
+              <div style={{ fontSize: "10px", color: "#6b7280", marginBottom: "5px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.06em" }}>Name</div>
+              <input value={newRoutine.name} onChange={e => setNewRoutine(p => ({ ...p, name: e.target.value }))} placeholder="e.g. Morning meditation" style={S} />
+            </div>
+
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "9px", marginBottom: "11px" }}>
+              <div>
+                <div style={{ fontSize: "10px", color: "#6b7280", marginBottom: "5px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.06em" }}>Category</div>
+                <select value={newRoutine.category} onChange={e => setNewRoutine(p => ({ ...p, category: e.target.value }))} style={S}>
+                  {Object.entries(CATEGORIES).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
+                </select>
+              </div>
+              <div>
+                <div style={{ fontSize: "10px", color: "#6b7280", marginBottom: "5px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.06em" }}>Time</div>
+                <input type="time" value={newRoutine.time} onChange={e => setNewRoutine(p => ({ ...p, time: e.target.value }))} style={S} />
+              </div>
+            </div>
+
+            <div style={{ marginBottom: "18px" }}>
+              <div style={{ fontSize: "10px", color: "#6b7280", marginBottom: "6px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.06em" }}>Days</div>
+              <div style={{ display: "flex", gap: "5px" }}>
+                {DAYS.map((day, i) => (
+                  <button key={day} onClick={() => toggleDay(i)} style={{
+                    flex: 1, padding: "6px 2px", borderRadius: "7px", fontSize: "10px", fontWeight: 600,
+                    background: newRoutine.days.includes(i) ? "rgba(129,140,248,0.2)" : "rgba(255,255,255,0.04)",
+                    border: newRoutine.days.includes(i) ? "1.5px solid #818cf8" : "1px solid rgba(255,255,255,0.08)",
+                    color: newRoutine.days.includes(i) ? "#a5b4fc" : "#4b5563", cursor: "pointer"
+                  }}>{day}</button>
+                ))}
+              </div>
+            </div>
+
+            <button onClick={addRoutine} disabled={!newRoutine.name.trim()} style={{
+              width: "100%", padding: "13px", borderRadius: "12px", border: "none",
+              background: newRoutine.name.trim() ? "linear-gradient(135deg,#818cf8,#34d399)" : "rgba(255,255,255,0.06)",
+              color: newRoutine.name.trim() ? "#fff" : "#4b5563",
+              fontSize: "14px", fontWeight: 700, cursor: newRoutine.name.trim() ? "pointer" : "not-allowed"
+            }}>Add Routine</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<RoutineTracker/>);
+  </script>
+
+  <!-- Service Worker for offline support -->
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      const swCode = `
+        const CACHE = "rebirth-v1";
+        self.addEventListener("install", e => {
+          e.waitUntil(caches.open(CACHE).then(c => c.addAll(["./"]).catch(()=>{})));
+          self.skipWaiting();
+        });
+        self.addEventListener("activate", e => { self.clients.claim(); });
+        self.addEventListener("fetch", e => {
+          e.respondWith(caches.match(e.request).then(r => r || fetch(e.request).catch(() => caches.match("./"))));
+        });
+      `;
+      const blob = new Blob([swCode], {type: "application/javascript"});
+      const swURL = URL.createObjectURL(blob);
+      navigator.serviceWorker.register(swURL).catch(()=>{});
+    }
+  </script>
+
+</body>
+</html>
